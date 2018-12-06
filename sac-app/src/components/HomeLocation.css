@@ -1,0 +1,66 @@
+.locationsContainer {
+    width: 800px;
+    height: 800px;
+    flex-direction: column;
+    margin: 25px auto;
+    background-color: #6a81a8;
+    display: flex;
+}
+
+.locationsContainerRow {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 300px;
+    display: flex;
+    padding: 10px 50px;
+    background-color: ghostwhite;
+}
+.itemContainer {
+    display: flex;
+    height: 250px;
+    width: 250px;
+    background-color: white;
+    border: 1px #2850a7 solid;
+    cursor: pointer;
+}
+
+.itemContainer:hover {
+    transform: scale(1.2);
+    background-color: #ccf3ff;
+}
+
+.locationImage {
+    height: 100%;
+    width: 100%;
+}
+
+.iconImage {
+    height: 60px;
+    width: 60px;
+    margin-top: 20px;
+    border-radius: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 35px;
+}
+
+.detailsContainer {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+    margin-left: 20px;
+    height: 100%;
+    width: 100%;
+}
+
+.detailsHeader {
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: bold;
+}
+
+.detailsText {
+    margin-left: auto;
+    margin-right: auto;
+}

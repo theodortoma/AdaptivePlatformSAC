@@ -1,0 +1,116 @@
+.input {
+    width: 100%;
+    height: 40px;
+    border-radius: 15px;
+    background-color: #fff;
+    border-width: 4px;
+    border-color: #2850a7;
+    outline: none;
+    text-align: center;
+    padding-left: 10px;
+    display: flex;
+    font-size: 18px;
+    color: #3367d6;
+    border-style: solid;
+}
+
+.formText {
+    display: flex;
+    padding-right: 10px;
+    padding-top: 20px;
+    font-size: 18px;
+    font-family: "Lucida Bright";
+    font-weight: bold;
+    color: #fff;
+}
+
+.inputRow {
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 500px;
+    margin: auto;
+    background-color: #9bbaef;
+    margin-top: 30px;
+}
+
+.birthDateContainer {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 10px;
+    align-items: center;
+    width: 100%;
+}
+
+select {
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.submitButton {
+    width: 150px;
+    height: 50px;
+    background-color: #a73d28;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border-width: 1px;
+    border-color: #333333;
+    border-style: solid;
+    color: #fff;
+    font-family: "Lucida Bright";
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.submitButton:hover {
+    transform: scale(1.2);
+    background-color: #721b0b;
+}
+
+.error {
+    color: #a3091e
+}
+
+.emptyBlock {
+    height: 21px;
+    width: 100%;
+}
+
+.headerMessage {
+    position: absolute;
+    /*position: relative; */
+    height: 100px;
+    width: 600px;
+    top: 100px;
+    left:0;
+    right:0;
+    margin-left:auto;
+    margin-right:auto;
+    z-index: 1;
+    flex-direction: column;
+    display: flex;
+}
+
+.headerText {
+    font-size: 60px;
+    text-align: center;
+    font-weight: bold;
+    color: #a3091e;
+    font-family: "Comic Sans MS";
+    text-shadow: 2px -2px 0 #000,
+    2px -2px 0 #000,
+    -2px 2px 0 #000,
+    2px 2px 0 #000;
+}
