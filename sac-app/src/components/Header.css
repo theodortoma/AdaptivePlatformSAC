@@ -70,3 +70,10 @@
     height: 20px;
     margin-right: 3px;
 }
+
+.userImage {
+    height: 40px;
+    margin-top: 5px;
+    width: auto;
+    border-radius: 100%;
+}

@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 import home from "../sweet-home-icon.jpg"
 import {DropDownMenu} from "./DropDownMenu";
 import history from "../history";
+import userImage from "../user.png"
 
 export class Header extends Component {
     constructor(props) {
@@ -84,7 +85,7 @@ export class Header extends Component {
                         loggedIn
                             ?
                             <div className={"rightContainer"}>
-
+                                <img className="userImage" src={userImage}/>
                                 <div className={"userName"}>
                                     <i>{username}</i>
                                 </div>
