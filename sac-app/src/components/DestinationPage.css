@@ -1,0 +1,69 @@
+.destinationContainer {
+    margin-top: 50px;
+    margin-right:auto;
+    margin-left:auto;
+    width:800px;
+    background-color: #9bbaef;
+    /*height:800px;*/
+    display: flex;
+    flex-direction: column;
+}
+
+.destinationHeader {
+    margin: 20px;
+    flex-direction: row;
+    /*background-color: #3367d6;*/
+    height:250px;
+    display: flex;
+}
+.destinationImage {
+    display: flex;
+    height: 250px;
+    max-width: 250px;
+    /*background-color: white;*/
+    border: 1px #2850a7 solid;
+    flex:1;
+}
+
+.destinationTitleContainer {
+    flex:1;
+    /*background-color: #a3091e;*/
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.destinationTitle {
+    font-weight: bolder;
+    font-size: 35px;
+    cursor: default;
+}
+
+.destinationDetails {
+    display: flex;
+    flex:1;
+    margin: 20px;
+    /*background-color: ;*/
+    flex-direction: column;
+}
+
+.destinationDetailsTitle {
+    font-weight: bold;
+    font-size: 25px;
+    cursor: default;
+}
+
+.destinationDetailsContent {
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    margin:auto;
+}
+
+.destinationDetailsText {
+    margin-left: 20px;
+    font-size: 15px;
+    cursor: default;
+}

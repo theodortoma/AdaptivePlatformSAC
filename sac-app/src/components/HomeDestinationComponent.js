@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import "./HomeLocation.css"
+import "./HomeDestinations.css"
 import foodIcon from "../foodIcon.jpg"
 import attractionsIcon from "../attractionsIcon.jpg"
 import hotelsIcon from "../hotelsIcon.png"
 import detailsIcon from "../detailsIcon.png"
-
-export class HomeLocationComponent extends Component {
+import {mapNameToImage} from "../images"
+export class HomeDestinationComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -13,10 +13,13 @@ export class HomeLocationComponent extends Component {
             index: 0,
             loop: false
         };
+        let image = "../cityImages/Bucharest";
+
         this.baseImage = {
             key: "baseImage",
             component: () => {
-                return <img className="locationImage" src={this.props.location.image}/>
+                console.log(this.props.destination.city);
+                return <img className="locationImage" src={mapNameToImage(this.props.destination.city)} alt={"Image not found"}/>
             }
         };
 
@@ -27,8 +30,8 @@ export class HomeLocationComponent extends Component {
                     return (
                         <div className="detailsContainer">
                             <img className="iconImage" src={detailsIcon}/>
-                            <div className="detailsHeader">Country: {this.props.location.location.country}</div>
-                            <div className="detailsHeader">City: {this.props.location.location.city}</div>
+                            <div className="detailsHeader" style={{fontSize: "20px"}}>City: {this.props.destination.city}</div>
+                            <div className="detailsHeader">Country: {this.props.destination.country}</div>
                         </div>
                     )
                 }
@@ -39,9 +42,9 @@ export class HomeLocationComponent extends Component {
                     return (
                         <div className="detailsContainer">
                             <img className="iconImage" src={attractionsIcon}/>
-                            <div className="detailsHeader">{this.props.location.attractions[0].attraction}</div>
-                            <div className="detailsText">Type: {this.props.location.attractions[0].type}</div>
-                            <div className="detailsText">Price: {this.props.location.attractions[0].price} {this.props.location.attractions[0].coin}</div>
+                            <div className="detailsHeader">{this.props.destination.pois[0].name}</div>
+                            <div className="detailsText">Type: {this.props.destination.pois[0].type}</div>
+                            <div className="detailsText">Price: {this.props.destination.pois[0].price} RON</div>
                         </div>
                     )
                 }
@@ -52,9 +55,9 @@ export class HomeLocationComponent extends Component {
                     return (
                         <div className="detailsContainer">
                             <img className="iconImage" src={hotelsIcon}/>
-                            <div className="detailsHeader">{this.props.location.hotels[0].name}</div>
-                            <div className="detailsText">Price: {this.props.location.hotels[0].priceLow} {this.props.location.hotels[0].coin}
-                                        - {this.props.location.hotels[0].priceHigh} {this.props.location.hotels[0].coin}
+                            <div className="detailsHeader">{this.props.destination.hotels[0].name}</div>
+                            <div
+                                className="detailsText">Price: {this.props.destination.hotels[0].price} RON
                             </div>
                         </div>
                     )
@@ -66,8 +69,13 @@ export class HomeLocationComponent extends Component {
                     return (
                         <div className="detailsContainer">
                             <img className="iconImage" src={foodIcon}/>
-                            <div className="detailsHeader">{this.props.location.food[0].name}</div>
-                            <div className="detailsText">Price: {this.props.location.food[0].price} {this.props.location.food[0].coin}</div>
+                            <div className="detailsHeader">{this.props.destination.restaurants[0].name}</div>
+                            <div
+                                className="detailsText">Cuisine: {this.props.destination.restaurants[0].cuisine.filter((value, index) => {
+                                    return index < 4
+                            }).map((value, index) => {
+                                    return value + " | "
+                            })}</div>
                         </div>
                     )
                 }
@@ -106,12 +114,17 @@ export class HomeLocationComponent extends Component {
         });
     }
 
+    goToLocationPage() {
+        this.props.setCurrentDestinationPage(this.props.destination)
+    }
+
     render() {
         return (
             <div
                 className="itemContainer"
                 onMouseOver={() => this.overComponent()}
                 onMouseLeave={() => this.leaveComponent()}
+                onClick={() => this.goToLocationPage()}
             >
                 {this.state.loop
                     ?

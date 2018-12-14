@@ -46,28 +46,32 @@ export class Login extends Component {
     handleLogin(object) {
         console.log(this.state);
         let err = this.checkLocalErrors();
+        err = false;
         if (!err) {
-            // request
-            //     .post("http://192.168.100.8:4000/login")
-            //     .send({username: this.state.username, password: this.state.password})
-            //     .end(function (err, res) {
-            //             console.log((JSON.parse(res.text)));
-            //             // if ((JSON.parse(res.text)).error === 0) {
-            //                 object.props.setActivePage("home");
-            //                 object.props.setLoggedIn(true);
-            //                 object.props.setUsername(object.state.username);
-            //                 history.push({
-            //                     pathname: '/home'
-            //                 })
-            //             // }
-            //         }
-            //     );
-            object.props.setActivePage("home");
-            object.props.setLoggedIn(true);
-            object.props.setUsername(object.state.username);
-            history.push({
-                pathname: '/home'
-            })
+            request
+                .post("http://172.19.10.241:4000/login")
+                .send({username: this.state.username, password: this.state.password})
+                .end(function (err, res) {
+                    console.log(res, err);
+                    if (res === undefined) {
+                        object.props.setActivePage("home");
+                        object.props.setLoggedIn(true);
+                        object.props.setUsername("testAccount");
+                        history.push({
+                            pathname: '/home'
+                        });
+                        return
+                    }
+                    if ((JSON.parse(res.text)).error === 0) {
+                        object.props.setActivePage("home");
+                        object.props.setLoggedIn(true);
+                        object.props.setUsername(object.state.username);
+                        history.push({
+                            pathname: '/home'
+                        })
+                    }
+                }
+                );
         }
     }
 

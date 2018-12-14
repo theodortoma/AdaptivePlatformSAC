@@ -4,6 +4,7 @@ import request from "superagent";
 export class SignUp extends Component{
     constructor(props) {
         super(props);
+        this.object = this;
         this.months = [
             "January",
             "February",
@@ -130,14 +131,15 @@ export class SignUp extends Component{
     handleSignUp() {
         console.log(this.state);
         let err = this.checkLocalErrors();
-        // if (!err) {
+        if (!err) {
             request
-                .post("http://192.168.100.8:4000/signup")
-                .send({ username: "ASD", password: "ASD", email: "ASD", birthdate: "ASD"})
+                .post("http://172.19.10.241:4000/signup2")
+                .send({ username: this.state.username, password: this.state.password1, email: this.state.email, birthdate: "???"})
                 .end(function(err, res){
                     console.log(JSON.parse(res.text).message);
+
                 });
-        // }
+        }
     }
 
     render() {

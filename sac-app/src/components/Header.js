@@ -69,6 +69,20 @@ export class Header extends Component {
                 }
             },
             {
+                key: "planning",
+                component: (activeButton, username, loggedIn) => {
+                    return (
+                        <Link className={activeButton === "planning" ? "activeMenuButton" : "menuButton"}
+                              onClick={() => {
+                                  this.props.setActivePage("planning")
+                              }}
+                              to="/planning">Plan a Trip
+                        </Link>
+
+                    )
+                }
+            },
+            {
                 key: "rightSide",
                 component: (activeButton, username, loggedIn) => {
                     let options = [
